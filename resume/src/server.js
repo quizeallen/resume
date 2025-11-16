@@ -113,7 +113,8 @@ app.use('/api', apiRouter)
 app.use(express.static(distDir))
 
 // Final catch-all: serve index.html for client-side routing
-app.get('*', (req, res) => {
+// Express 5 requires this to be middleware, not a route with *
+app.use((req, res) => {
     res.sendFile(path.join(distDir, 'index.html'))
 })
 
