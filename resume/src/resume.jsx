@@ -50,6 +50,44 @@ function Resume() {
                     <p>
                         You’ve already seen my <span className="a">animation work</span> in the welcome section of the site, where I combine smooth transitions with responsive UI behavior. You’ll also notice my backend experience in the login system. The authentication flow is powered by Node.js, Express, and a connected SQL database, and it’s built to keep the experience simple and reliable. If you log in using the same username you registered with, the system recognizes you and lets you right back in.
                     </p>
+                    <h3>Downloads (PDF)</h3>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\Marquize_Allen_Resume.pdf" download>
+                                Resume 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\Marquize_Allen_Cover_Letter.pdf" download>
+                                Cover Letter 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\20251111_061803321_iOS.pdf" download>
+                                Mimo App Certificate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Internet Business Associate certificate.pdf" download>
+                                CIW Internet Business Associate Certificate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Network Technology Associate certificate.pdf" download>
+                                CIW Network Technology Associate Certificate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Site Development Associate certificate.pdf" download>
+                                CIW Site Development Associate Certificate
+                            </a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Web Foundations Associate certificate.pdf" download>
+                                CIW Web Foundations Associate Certificate
+                            </a>
+                        </li>
+                    </ul>
                     <p>
                         I also work with Azure, handle secure connections, design tables, and write clean SQL queries for storing user accounts, submitted data, and client information. My projects consistently focus on real-world functionality, scalability, and straightforward user experience.
                     </p>
