@@ -104,9 +104,13 @@ app.post('/api/users', async (req, res) => {
 // Serve static frontend AFTER API routes so /api/* stays dynamic
 app.use(express.static(distDir))
 
-// Catch-all to support client-side routing (Express 5 safe pattern)
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(distDir, 'index.html'))
+// Catch-all fallback for client-side routing - serve index.html for non-API routes
+app.use((req, res, next) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(distDir, 'index.html'))
+    } else {
+        next()
+    }
 })
 
 // Start server - Azure injects PORT (e.g., 8080)
