@@ -50,6 +50,12 @@ function Resume() {
                     <p>
                         You’ve already seen my <span className="a">animation work</span> in the welcome section of the site, where I combine smooth transitions with responsive UI behavior. You’ll also notice my backend experience in the login system. The authentication flow is powered by Node.js, Express, and a connected SQL database, and it’s built to keep the experience simple and reliable. If you log in using the same username you registered with, the system recognizes you and lets you right back in.
                     </p>
+                    <p>
+                        I also work with Azure, handle secure connections, design tables, and write clean SQL queries for storing user accounts, submitted data, and client information. My projects consistently focus on real-world functionality, scalability, and straightforward user experience.
+                    </p>
+                    <p>
+                        Whether it’s building a fast front-end interface, crafting reusable components, designing a backend API, or connecting everything to a database, I aim to deliver efficient and modern solutions every time.
+                    </p>
                     <h3>Downloads (PDF)</h3>
                     <ul>
                         <li>
@@ -88,12 +94,6 @@ function Resume() {
                             </a>
                         </li>
                     </ul>
-                    <p>
-                        I also work with Azure, handle secure connections, design tables, and write clean SQL queries for storing user accounts, submitted data, and client information. My projects consistently focus on real-world functionality, scalability, and straightforward user experience.
-                    </p>
-                    <p>
-                        Whether it’s building a fast front-end interface, crafting reusable components, designing a backend API, or connecting everything to a database, I aim to deliver efficient and modern solutions every time.
-                    </p>
                     <h3>Skills</h3>
                     <ul>
                         <li>HTML</li>
