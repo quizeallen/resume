@@ -2,12 +2,22 @@ import express from 'express'
 import sql from 'mssql'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 dotenv.config()
 
 const app = express()
 app.use(cors())
 app.use(express.json())
+
+// Resolve __dirname in ESM
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// Serve static frontend from Vite build output (dist)
+const distDir = path.resolve(__dirname, '../dist')
+app.use(express.static(distDir))
 
 // Azure SQL Database configuration
 const dbConfig = {
@@ -99,4 +109,9 @@ initializeDb().then(() => {
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`)
     })
+})
+
+// Catch-all to support client-side routing (React Router)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(distDir, 'index.html'))
 })
