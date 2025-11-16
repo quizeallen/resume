@@ -53,37 +53,37 @@ function Resume() {
                     <h3>Downloads (PDF)</h3>
                     <ul>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\Marquize_Allen_Resume.pdf" download>
-                                Resume 
+                            <a href="/downloads/Marquize_Allen_Resume.pdf" download>
+                                Resume
                             </a>
                         </li>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\Marquize_Allen_Cover_Letter.pdf" download>
-                                Cover Letter 
+                            <a href="/downloads/Marquize_Allen_Cover_Letter.pdf" download>
+                                Cover Letter
                             </a>
                         </li>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\20251111_061803321_iOS.pdf" download>
+                            <a href="/downloads/Mimo_App_Certificate.pdf" download>
                                 Mimo App Certificate
                             </a>
                         </li>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Internet Business Associate certificate.pdf" download>
+                            <a href="/downloads/CIW-Internet-Business-Associate.pdf" download>
                                 CIW Internet Business Associate Certificate
                             </a>
                         </li>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Network Technology Associate certificate.pdf" download>
+                            <a href="/downloads/CIW-Network-Technology-Associate.pdf" download>
                                 CIW Network Technology Associate Certificate
                             </a>
                         </li>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Site Development Associate certificate.pdf" download>
+                            <a href="/downloads/CIW-Site-Development-Associate.pdf" download>
                                 CIW Site Development Associate Certificate
                             </a>
                         </li>
                         <li>
-                            <a href="c:\Users\quize\OneDrive\html work\certification\CIW Web Foundations Associate certificate.pdf" download>
+                            <a href="/downloads/CIW-Web-Foundations-Associate.pdf" download>
                                 CIW Web Foundations Associate Certificate
                             </a>
                         </li>
