@@ -15,9 +15,8 @@ app.use(express.json())
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Serve static frontend from Vite build output (dist)
+// Location of Vite build output (dist)
 const distDir = path.resolve(__dirname, '../dist')
-app.use(express.static(distDir))
 
 // Azure SQL Database configuration
 const dbConfig = {
@@ -102,16 +101,18 @@ app.post('/api/users', async (req, res) => {
     }
 })
 
-// Start server
-const PORT = process.env.PORT || 3000
+// Serve static frontend AFTER API routes so /api/* stays dynamic
+app.use(express.static(distDir))
 
+// Catch-all to support client-side routing (Express 5 safe pattern)
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(distDir, 'index.html'))
+})
+
+// Start server - Azure injects PORT (e.g., 8080)
+const PORT = process.env.PORT || 8080
 initializeDb().then(() => {
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`)
     })
-})
-
-// Catch-all to support client-side routing (React Router)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(distDir, 'index.html'))
 })
