@@ -109,6 +109,15 @@ apiRouter.post('/users', async (req, res) => {
 // Mount API router BEFORE static files
 app.use('/api', apiRouter)
 
+// Force download for PDFs in /downloads
+app.use('/downloads', (req, res, next) => {
+    if (req.path.endsWith('.pdf')) {
+        res.setHeader('Content-Type', 'application/pdf')
+        res.setHeader('Content-Disposition', `attachment; filename="${path.basename(req.path)}"`)
+    }
+    next()
+})
+
 // Serve static files from the dist directory
 app.use(express.static(distDir))
 
