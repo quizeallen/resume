@@ -56,8 +56,13 @@ async function initializeDb() {
     }
 }
 
+// API Routes - these must come AFTER static files in Express 5
+// but we need them to match first, so we'll use a router
+
+const apiRouter = express.Router()
+
 // Health endpoint for diagnostics
-app.get('/api/health', (req, res) => {
+apiRouter.get('/health', (req, res) => {
     const missing = getMissingEnvVars()
     res.json({
         nodeEnv: process.env.NODE_ENV || 'development',
@@ -68,7 +73,7 @@ app.get('/api/health', (req, res) => {
 })
 
 // Get all users
-app.get('/api/users', async (req, res) => {
+apiRouter.get('/users', async (req, res) => {
     try {
         if (!dbReady) return res.status(503).json({ error: 'Database not ready' })
         const request = pool.request()
@@ -81,7 +86,7 @@ app.get('/api/users', async (req, res) => {
 })
 
 // Create a new user
-app.post('/api/users', async (req, res) => {
+apiRouter.post('/users', async (req, res) => {
     try {
         // Log incoming request body to aid debugging
         console.log('POST /api/users body:', req.body)
@@ -101,17 +106,15 @@ app.post('/api/users', async (req, res) => {
     }
 })
 
+// Mount API router BEFORE static files
+app.use('/api', apiRouter)
+
 // Serve static files from the dist directory
 app.use(express.static(distDir))
 
-// Final catch-all: serve index.html for any remaining routes (React Router)
-// This handles client-side routing
-app.use((req, res, next) => {
-    if (!req.path.startsWith('/api')) {
-        res.sendFile(path.join(distDir, 'index.html'))
-    } else {
-        next()
-    }
+// Final catch-all: serve index.html for client-side routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(distDir, 'index.html'))
 })
 
 // Start server - Azure injects PORT (e.g., 8080)
