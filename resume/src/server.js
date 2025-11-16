@@ -101,17 +101,17 @@ app.post('/api/users', async (req, res) => {
     }
 })
 
-// IMPORTANT: Serve static files ONLY for non-API routes
-app.use((req, res, next) => {
-    if (req.path.startsWith('/api')) {
-        return next() // Let API routes handle /api/* requests
-    }
-    express.static(distDir)(req, res, next)
-})
+// Serve static files from the dist directory
+app.use(express.static(distDir))
 
 // Final catch-all: serve index.html for any remaining routes (React Router)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(distDir, 'index.html'))
+// This handles client-side routing
+app.use((req, res, next) => {
+    if (!req.path.startsWith('/api')) {
+        res.sendFile(path.join(distDir, 'index.html'))
+    } else {
+        next()
+    }
 })
 
 // Start server - Azure injects PORT (e.g., 8080)
